@@ -18,7 +18,14 @@ class Day01 {
     }
 
     fun part2(input: List<String>): Int {
-        return input.size
+        val newList = mutableListOf<String>()
+        input.forEachIndexed { i, value ->
+            if(i > 0 && i < input.size -1){
+                val sum = input[i-1].toInt() + value.toInt() + input[i+1].toInt()
+                newList.add(sum.toString())
+            }
+        }
+        return part1(newList)
     }
 
 }
