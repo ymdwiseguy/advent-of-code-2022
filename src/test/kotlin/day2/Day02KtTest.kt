@@ -16,11 +16,11 @@ class Day02Test{
 
     @Test
     fun `part 1 should return navigation result`() {
-        day.part1(input) shouldBe 150
+        day.part1(input) shouldBe 0
     }
 
     @Test
     fun `part 2 should return navigation result`() {
-        day.part2(input) shouldBe 900
+        day.part2(input) shouldBe 0
     }
 }

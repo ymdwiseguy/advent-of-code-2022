@@ -16,11 +16,11 @@ class Day01Test{
 
     @Test
     fun `part 1 should return number of increases`() {
-        day.part1(input) shouldBe 7
+        day.part1(input) shouldBe 0
     }
 
     @Test
     fun `part 2 should return number of sliding window sum increases`() {
-         day.part2(input) shouldBe 5
+         day.part2(input) shouldBe 0
     }
 }

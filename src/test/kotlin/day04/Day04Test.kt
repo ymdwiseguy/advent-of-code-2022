@@ -17,15 +17,15 @@ internal class Day04Test {
 
     @Test
     fun `part 1 should return the score of the winning card`() {
-        day.part1(testInput) shouldBe 4512
-        day.part1(input) shouldBe 39902
+        day.part1(testInput) shouldBe 0
+        day.part1(input) shouldBe 0
 
     }
 
     @Test
     fun `part 2 should return the score of the loosing card`() {
-        day.part2(testInput) shouldBe 1924
-        day.part2(input) shouldBe 26936
+        day.part2(testInput) shouldBe 0
+        day.part2(input) shouldBe 0
     }
 
 }
