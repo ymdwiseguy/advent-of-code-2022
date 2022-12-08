@@ -15,12 +15,30 @@ internal class Day03Test {
     }
 
     @Test
-    fun `part 1 should return the power consumption`() {
-        Day03().part1(input) shouldBe 0
+    fun `part 1 should return 157`() {
+        Day03().part1(input) shouldBe 157
     }
 
     @Test
-    fun `part 2 should return the life support rating`() {
+    fun `get backpacks priority`() {
+        day.getBackpackPriorityChar("vJrwpWtwJgWrhcsFMMfFFhFp") shouldBe 'p'
+        day.getBackpackPriorityChar("jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL") shouldBe 'L'
+        day.getBackpackPriorityChar("PmmdzqPrVvPwwTWBwg") shouldBe 'P'
+        day.getBackpackPriorityChar("wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn") shouldBe 'v'
+        day.getBackpackPriorityChar("ttgJtRGJQctTZtZT") shouldBe 't'
+        day.getBackpackPriorityChar("CrZsJsPPZsGzwwsLwLmpwMDw") shouldBe 's'
+    }
+
+    @Test
+    fun `map char to priority`() {
+        day.convertPriorityCharToInt('a') shouldBe 1
+        day.convertPriorityCharToInt('z') shouldBe 26
+        day.convertPriorityCharToInt('A') shouldBe 27
+        day.convertPriorityCharToInt('Z') shouldBe 52
+    }
+
+    @Test
+    fun `part 2 should return 0`() {
         Day03().part2(input) shouldBe 0
     }
 
