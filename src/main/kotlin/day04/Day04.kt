@@ -3,7 +3,8 @@ package day04
 import readInput
 
 fun main() {
-    Day04().part2(Day04().testInput)
+    println("Part 1: ${Day04().part1(Day04().input)}")
+    println("Part 2: ${Day04().part2(Day04().input)}")
 }
 
 class Day04 {

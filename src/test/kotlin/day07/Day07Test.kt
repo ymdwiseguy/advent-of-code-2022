@@ -1,17 +1,17 @@
-package day04
+package day07
 
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import shouldBe
 
-internal class Day04Test {
+internal class Day07Test {
 
-    private lateinit var day: Day04
-    private val testInput: List<String> = Day04().testInput
+    private lateinit var day: Day07
+    private val testInput: List<String> = Day07().testInput
 
     @BeforeEach
     fun setUp() {
-        day = Day04()
+        day = Day07()
     }
 
     @Test
