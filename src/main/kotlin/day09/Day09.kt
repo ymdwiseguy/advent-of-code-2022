@@ -43,9 +43,7 @@ class Day09 {
     }
 
     fun headPath(input: List<String>): List<Point> {
-
         var currentPosition = Point(0, 0)
-
         val headPath = mutableListOf(currentPosition)
 
         input.forEach {
@@ -105,7 +103,6 @@ class Day09 {
 
     private fun verticalTendency(new: Point, cur: Point) =
         verticalDifference(new, cur) > horizontalDifference(new, cur) || horizontalEqual(cur, new)
-
 
     private fun goUp(cur: Point, new: Point) = if (cur.y < new.y - 1) new.y - 1 else cur.y
     private fun goDown(cur: Point, new: Point) = if (cur.y > new.y - 1) new.y + 1 else cur.y
