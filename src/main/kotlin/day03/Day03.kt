@@ -19,7 +19,36 @@ class Day03 {
         return count
     }
 
-    fun part2(input: List<String>): Int = 0
+    fun part2(input: List<String>): Int {
+        val groups = input.windowed(size = 3, step = 3)
+        var count = 0
+
+        groups.forEach {
+            count += convertPriorityCharToInt(
+                findBadgeInBackPacks(it)
+            )
+        }
+
+        return count
+    }
+
+    private fun findBadgeInBackPacks(backPacks: List<String>): Char {
+        var badgeChar = 'a'
+        val compareFirst = mutableListOf<Char>()
+
+
+        backPacks[0].forEach { char ->
+            if (char in backPacks[1]) {
+                compareFirst.add(char)
+            }
+        }
+        compareFirst.find {
+            it in backPacks[2]
+        }?.let { found ->
+            badgeChar = found
+        }
+        return badgeChar
+    }
 
     fun getBackpackPriorityChar(contents: String): Char {
         var priorityChar = 'a'

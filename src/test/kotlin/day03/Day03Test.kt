@@ -38,8 +38,8 @@ internal class Day03Test {
     }
 
     @Test
-    fun `part 2 should return 0`() {
-        Day03().part2(input) shouldBe 0
+    fun `part 2 should return 70`() {
+        Day03().part2(input) shouldBe 70
     }
 
 }
