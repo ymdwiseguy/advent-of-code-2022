@@ -15,12 +15,18 @@ class Day05 {
     fun part1(input: List<String>): String {
         val (stacks: MutableMap<Int, Stack>, instructions: List<Instruction>) = parseInput(input)
 
-        return stacks.followInstructions(instructions).map { mapEntry ->
+        return stacks.followInstructions9000(instructions).map { mapEntry ->
             mapEntry.value.crates.last()
         }.joinToString(separator = "")
     }
 
-    fun part2(input: List<String>): Int = 0
+    fun part2(input: List<String>): String {
+        val (stacks: MutableMap<Int, Stack>, instructions: List<Instruction>) = parseInput(input)
+
+        return stacks.followInstructions9001(instructions).map { mapEntry ->
+            mapEntry.value.crates.last()
+        }.joinToString(separator = "")
+    }
 
 
     fun parseInput(input: List<String>): Pair<MutableMap<Int, Stack>, List<Instruction>> =
@@ -69,16 +75,36 @@ class Day05 {
     )
 }
 
-fun MutableMap<Int, Day05.Stack>.followInstructions(instructions: List<Day05.Instruction>): MutableMap<Int, Day05.Stack> {
-    instructions.forEach {
-        for (i in 1..it.howMany) {
-            this[it.from]?.crates?.let { cratesFromStack ->
-                this[it.to]?.crates?.add(
+fun MutableMap<Int, Day05.Stack>.followInstructions9000(instructions: List<Day05.Instruction>): MutableMap<Int, Day05.Stack> {
+    instructions.forEach { instruction ->
+        for (i in 1..instruction.howMany) {
+            this[instruction.from]?.crates?.let { cratesFromStack ->
+                this[instruction.to]?.crates?.add(
                     cratesFromStack.last()
                 )
                 cratesFromStack.removeLast()
             }
         }
+    }
+    return this
+}
+
+fun MutableMap<Int, Day05.Stack>.followInstructions9001(instructions: List<Day05.Instruction>): MutableMap<Int, Day05.Stack> {
+    instructions.forEach { instruction ->
+        val moving = mutableListOf<Char>()
+
+        for (i in 1..instruction.howMany) {
+            this[instruction.from]?.crates?.let { cratesFromStack ->
+                moving.add(
+                    cratesFromStack.last()
+                )
+                cratesFromStack.removeLast()
+            }
+        }
+
+        this[instruction.to]?.crates?.addAll(
+            moving.reversed()
+        )
     }
     return this
 }

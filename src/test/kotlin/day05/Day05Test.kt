@@ -28,15 +28,38 @@ internal class Day05Test {
     }
 
     @Test
-    fun `compute instructions`() {
+    fun `part 2 should return MCD`() {
+        day.part2(testInput) shouldBe "MCD"
+    }
+
+    @Test
+    fun `part 2 with real data should return BRZGFVBTJ`() {
+         day.part2(input) shouldBe "BRZGFVBTJ"
+    }
+
+    @Test
+    fun `compute instructions for part 1`() {
         val (stacks: Map<Int, Stack>, instructions: List<Instruction>) = day.parseInput(
             testInput
         )
 
-        stacks.followInstructions(instructions) shouldBe mapOf(
+        stacks.followInstructions9000(instructions) shouldBe mapOf(
             1 to Stack(mutableListOf('C')),
             2 to Stack(mutableListOf('M')),
             3 to Stack(mutableListOf('P', 'D', 'N', 'Z')),
+        )
+    }
+
+    @Test
+    fun `compute instructions for part 2`() {
+        val (stacks: Map<Int, Stack>, instructions: List<Instruction>) = day.parseInput(
+            testInput
+        )
+
+        stacks.followInstructions9001(instructions) shouldBe mapOf(
+            1 to Stack(mutableListOf('M')),
+            2 to Stack(mutableListOf('C')),
+            3 to Stack(mutableListOf('P', 'Z', 'N', 'D')),
         )
     }
 
@@ -55,11 +78,6 @@ internal class Day05Test {
             Instruction(2, 2, 1),
             Instruction(1, 1, 2),
         )
-    }
-
-    @Test
-    fun `number of stacks`() {
-        stringsOfStacks.last().windowed(2, 4).size shouldBe 3
     }
 
     @Test
@@ -88,11 +106,6 @@ internal class Day05Test {
             Instruction(2, 2, 1),
             Instruction(1, 1, 2),
         )
-    }
-
-    @Test
-    fun `part 2 should return 0`() {
-        day.part2(testInput) shouldBe 0
     }
 
     private companion object {
