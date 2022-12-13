@@ -10,9 +10,21 @@ fun main() {
 class Day06 {
 
     val input = readInput("resources/day06/data")
-    val testInput = readInput("resources/day06/data_test")
 
-    fun part1(input: List<String>): Int = 0
-    fun part2(input: List<String>): Int = 0
+    fun part1(input: List<String>): Int = findDistinctChars(input.first(), 4)
 
+    fun part2(input: List<String>): Int = findDistinctChars(input.first(), 14)
+
+    private fun findDistinctChars(input: String, numberOfChars: Int): Int {
+        var position = 0
+        input.windowed(
+            numberOfChars, 1
+        ).mapIndexed { index: Int, chars: String ->
+            if (chars.toSet().size == numberOfChars && position == 0) {
+                position = index + numberOfChars
+            }
+        }
+
+        return position
+    }
 }
