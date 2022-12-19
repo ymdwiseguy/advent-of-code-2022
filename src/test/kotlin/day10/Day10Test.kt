@@ -15,14 +15,21 @@ internal class Day10Test {
     }
 
     @Test
-    fun `part 1 should return 0`() {
-        day.part1(testInput) shouldBe 0
+    fun `part 1 should return 13140`() {
+        day.part1(testInput) shouldBe 13140
 
     }
 
     @Test
-    fun `part 2 should return 0`() {
-        day.part2(testInput) shouldBe 0
+    fun `part 2 should return picture`() {
+        val picture = "\n" +
+            "##..##..##..##..##..##..##..##..##..##..\n" +
+            "###...###...###...###...###...###...###.\n" +
+            "####....####....####....####....####....\n" +
+            "#####.....#####.....#####.....#####.....\n" +
+            "######......######......######......####\n" +
+            "#######.......#######.......#######....."
+        day.part2(testInput) shouldBe picture
     }
 
 }
